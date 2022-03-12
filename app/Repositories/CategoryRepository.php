@@ -18,7 +18,7 @@ class CategoryRepository
 
     public function updateCategory($category, $data)
     {
-        Category::update($category, $data);
+        $category->update($data);
         return $category;
     }
 }

@@ -11,6 +11,8 @@ class Category extends Model
 
     protected $fillable = ['name'];
 
+    protected $hidden = ['deleted_at'];
+
     public function products(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Product::class);
