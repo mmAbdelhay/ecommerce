@@ -7,13 +7,21 @@ use App\Http\DTOs\User\RegisterDTO;
 use App\Http\Requests\User\RegisterRequest;
 use App\Http\Resources\UserResource;
 use App\Models\User;
+use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
-    public function register(RegisterRequest $request)
+    private UserRepository $userRepository;
+
+    public function __construct(UserRepository $userRepository)
     {
-        $user = User::create(RegisterDTO::collection($request))->assignRole(User::USER);
+        $this->userRepository = $userRepository;
+    }
+
+    public function register(RegisterRequest $request): \Illuminate\Http\JsonResponse
+    {
+        $user = $this->userRepository->createUser(RegisterDTO::collection($request))->assignRole(User::USER);
 
         return response()->json([
             'message' => 'User registered successfully',
