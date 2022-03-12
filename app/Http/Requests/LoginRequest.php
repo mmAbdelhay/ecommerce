@@ -6,12 +6,15 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class LoginRequest extends FormRequest
 {
+
+    protected $stopOnFirstFailure = true;
+
     /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -24,8 +27,8 @@ class LoginRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'email|exists:users,email',
-            'password' => 'min:6'
+            'email' => 'required|email|exists:users,email',
+            'password' => 'required|min:6'
         ];
     }
 }
