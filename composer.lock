@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e4f537cef2a0e6e34daae8f7abae87af",
+    "content-hash": "0b971ffe5d3a15abc34ab50eddc9ee02",
     "packages": [
         {
             "name": "brick/math",
@@ -1662,6 +1662,55 @@
                 }
             ],
             "time": "2021-11-21T11:48:40+00:00"
+        },
+        {
+            "name": "mohamedgaber-intake40/filter-quent",
+            "version": "v2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mohamedgaber-intake40/filter-quent.git",
+                "reference": "76c63164f02708f71211f7e6cbc9e1ec9f46cfdb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mohamedgaber-intake40/filter-quent/zipball/76c63164f02708f71211f7e6cbc9e1ec9f46cfdb",
+                "reference": "76c63164f02708f71211f7e6cbc9e1ec9f46cfdb",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Filter\\Providers\\FilterServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Filter\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mohamed Gaber",
+                    "email": "gaberm514@gmail.com"
+                },
+                {
+                    "name": "Osama Eltayar",
+                    "email": "osamaeltiar@yahoo.com"
+                }
+            ],
+            "description": "An easy way to filter Queries Laravel Eloquent.",
+            "homepage": "https://github.com/mohamedgaber-intake40/filter-quent",
+            "support": {
+                "issues": "https://github.com/mohamedgaber-intake40/filter-quent/issues",
+                "source": "https://github.com/mohamedgaber-intake40/filter-quent/tree/v2.0.1"
+            },
+            "time": "2022-01-10T19:16:38+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -5544,6 +5593,77 @@
                 "source": "https://github.com/hamcrest/hamcrest-php/tree/v2.0.1"
             },
             "time": "2020-07-09T08:09:16+00:00"
+        },
+        {
+            "name": "lanin/laravel-api-debugger",
+            "version": "4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mlanin/laravel-api-debugger.git",
+                "reference": "eed485a7cfd01fe9248403af75a4ada950b7cde9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mlanin/laravel-api-debugger/zipball/eed485a7cfd01fe9248403af75a4ada950b7cde9",
+                "reference": "eed485a7cfd01fe9248403af75a4ada950b7cde9",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": ">=5.4.0",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.3.1",
+                "orchestra/testbench": ">=3.4.0",
+                "phpunit/phpunit": "^7"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Lanin\\Laravel\\ApiDebugger\\ServiceProvider"
+                    ],
+                    "aliases": {
+                        "Debugger": "Lanin\\Laravel\\ApiDebugger\\Support\\Facade"
+                    }
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/Support/helpers.php"
+                ],
+                "psr-4": {
+                    "Lanin\\Laravel\\ApiDebugger\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maxim Lanin",
+                    "email": "max@lanin.me",
+                    "homepage": "http://lanin.me"
+                }
+            ],
+            "description": "Easily debug your JSON API.",
+            "keywords": [
+                "api",
+                "debug",
+                "debugger",
+                "dump",
+                "framework",
+                "json",
+                "laravel",
+                "log",
+                "queries"
+            ],
+            "support": {
+                "issues": "https://github.com/mlanin/laravel-api-debugger/issues",
+                "source": "https://github.com/mlanin/laravel-api-debugger/tree/4.0.0"
+            },
+            "time": "2020-07-09T10:34:16+00:00"
         },
         {
             "name": "laravel/sail",
