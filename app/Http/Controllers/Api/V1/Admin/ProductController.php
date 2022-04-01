@@ -10,6 +10,7 @@ use App\Models\Product;
 use App\Repositories\ProductRepository;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class ProductController extends Controller
 {
@@ -48,7 +49,7 @@ class ProductController extends Controller
         return response()->json([
             'message' => 'Category created successfully',
             'data' => ProductResource::make($product)
-        ]);
+        ], Response::HTTP_CREATED);
     }
 
     /**

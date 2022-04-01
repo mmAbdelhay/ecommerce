@@ -56,7 +56,7 @@ class CategoryController extends Controller
         return response()->json([
             'message' => 'Category created successfully',
             'data' => CategoryResource::make($category)
-        ]);
+        ], Response::HTTP_CREATED);
     }
 
     /**

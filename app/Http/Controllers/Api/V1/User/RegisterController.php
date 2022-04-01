@@ -9,6 +9,7 @@ use App\Http\Resources\UserResource;
 use App\Models\User;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class RegisterController extends Controller
 {
@@ -111,6 +112,6 @@ class RegisterController extends Controller
         return response()->json([
             'message' => 'User registered successfully',
             'user' => UserResource::make($user),
-        ]);
+        ], Response::HTTP_CREATED);
     }
 }
