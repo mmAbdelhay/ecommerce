@@ -6,10 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Http\DTOs\User\RegisterDTO;
 use App\Http\Requests\User\RegisterRequest;
 use App\Http\Resources\UserResource;
+use App\Jobs\MailJob;
+use App\Mail\WelcomeMail;
 use App\Models\User;
 use App\Repositories\UserRepository;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
 {
@@ -108,7 +110,7 @@ class RegisterController extends Controller
     public function register(RegisterRequest $request): \Illuminate\Http\JsonResponse
     {
         $user = $this->userRepository->createUser(RegisterDTO::collection($request))->assignRole(User::USER);
-
+        MailJob::dispatch("WelcomeMail", ['welcome_message' => 'Welcome to az'], $user->email);
         return response()->json([
             'message' => 'User registered successfully',
             'user' => UserResource::make($user),
