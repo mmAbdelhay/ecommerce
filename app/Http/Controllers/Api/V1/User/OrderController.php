@@ -29,7 +29,10 @@ class OrderController extends Controller
      */
     public function index(Request $request): \Illuminate\Http\JsonResponse
     {
-        return response()->json(['data' => OrderResource::collection($this->orderRepository->getAllOrdersForAuthUser())]);
+        $filterData = $request->only('product', 'paid');
+        return response()->json(['data' =>
+            OrderResource::collection($this->orderRepository->getAllOrdersForAuthUser($filterData))
+        ]);
     }
 
     /**
@@ -67,7 +70,7 @@ class OrderController extends Controller
      */
     public function destroy(Order $order): \Illuminate\Http\JsonResponse
     {
-        if($order->user_id != Auth::user()->id)
+        if ($order->user_id != Auth::user()->id)
             return response()->json(['message' => 'Cant delete oder doesnt belong to you'], Response::HTTP_FORBIDDEN);
 
         $order->delete();
