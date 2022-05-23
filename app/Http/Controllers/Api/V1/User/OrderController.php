@@ -71,7 +71,10 @@ class OrderController extends Controller
     public function destroy(Order $order): \Illuminate\Http\JsonResponse
     {
         if ($order->user_id != Auth::user()->id)
-            return response()->json(['message' => 'Cant delete oder doesnt belong to you'], Response::HTTP_FORBIDDEN);
+            return response()->json(['message' => 'Cant delete order doesnt belong to you'], Response::HTTP_FORBIDDEN);
+
+        if($order->status != Order::PENDING)
+            return response()->json(['message' => 'Cant delete order is already shipped'], Response::HTTP_FORBIDDEN);
 
         $order->delete();
         return response()->json(['message' => 'Order deleted successfully']);

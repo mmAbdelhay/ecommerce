@@ -88,6 +88,9 @@ class ProductController extends Controller
      */
     public function destroy(Product $product): JsonResponse
     {
+        if (count($product->orders) > 0)
+            return response()->json(['message' => 'Cant delete product which has orders'], Response::HTTP_FORBIDDEN);
+
         $product->delete();
         return response()->json(['message' => 'Product deleted successfully']);
     }
