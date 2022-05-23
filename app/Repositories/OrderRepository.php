@@ -16,4 +16,9 @@ class OrderRepository
     {
         return Order::create($data);
     }
+
+    public function getOrderById($id)
+    {
+        return Order::where('id', $id)->first();
+    }
 }
